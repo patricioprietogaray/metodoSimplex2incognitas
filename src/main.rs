@@ -69,8 +69,9 @@ _linea_acabado_s2_r];
 //mostrar la matriz
 _mostrar_matriz(_linea_z, _linea_montaje_s1, _linea_acabado_s2);
 
-let _col_piv=_buscar_el_menor_en_z(_linea_z);
-println!("Columna Pivot en Z es {}", _col_piv);
+let _indice_col_piv=_buscar_el_menor_en_z(_linea_z);
+println!("La Columna Pivot en Z es {}", _indice_col_piv);
+println!("El valor de la columna pivot en la linea Z es {}", _linea_z[_indice_col_piv]);
 
 // let _tabla_inicial:[f64;3]=[
 //     _linea_z[f64;6], _linea_montaje_s1[f64;6], 
@@ -131,21 +132,21 @@ println!("Columna Pivot en Z es {}", _col_piv);
 
 fn _mostrar_matriz(_z:[f64;6], _linea_montaje_s1:[f64;6], _linea_acabado_s2:[f64;6]) {
     
-    println!("|     | {0: <5} | {1: <7} | {2: <7} | {3: <7} | {4: <7} | {5: <7} |",
+    println!("|    | {0: <5} | {1: <7} | {2: <7} | {3: <7} | {4: <7} | {5: <7} |",
     "Z","x1","x2", "S1", "S2", "R");
-    println!("| Z   | {0: <5} | {1: <6} | {2: <6} | {3: <6} | {4: <6} | {5: <6} |", 
+    println!("| Z  | {0: <5} | {1: <7} | {2: <7} | {3: <7} | {4: <7} | {5: <7} |", 
     _z[0],_z[1],_z[2],_z[3],_z[4],_z[5]);
-    println!("| S1  | {0: <5} | {1: <6} | {2: <6} | {3: <6} | {4: <6} | {5: <6} |", 
+    println!("| S1 | {0: <5} | {1: <7} | {2: <7} | {3: <7} | {4: <7} | {5: <7} |", 
     _linea_montaje_s1[0], _linea_montaje_s1[1], _linea_montaje_s1[2],
     _linea_montaje_s1[3], _linea_montaje_s1[4], _linea_montaje_s1[5]);
-    println!("| S2  | {0: <5} | {1: <6} | {2: <6} | {3: <6} | {4: <6} | {5: <6} |", 
+    println!("| S2 | {0: <5} | {1: <7} | {2: <7} | {3: <7} | {4: <7} | {5: <7} |", 
     _linea_acabado_s2[0], _linea_acabado_s2[1], _linea_acabado_s2[2],
     _linea_acabado_s2[3], _linea_acabado_s2[4], _linea_acabado_s2[5]);
     println!("");
     
 }
 
-fn _buscar_el_menor_en_z(_z:[f64;6]) -> f64 {
+fn _buscar_el_menor_en_z(_z:[f64;6]) -> usize {
     let mut _menor = _z[0];
     let mut _indice=0;
     println!("_menor {}", _menor);
@@ -166,8 +167,8 @@ fn _buscar_el_menor_en_z(_z:[f64;6]) -> f64 {
         
 
     }
-    println!("El indice es {}", _indice);
-    _menor
+    // println!("El valor menor es {}", _indice);
+    _indice
 }
 
 
